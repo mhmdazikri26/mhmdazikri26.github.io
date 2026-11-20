@@ -1,14 +1,14 @@
 {
   "name": "situs-azikri",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
+  "private": true,
+  "description": "Register riset: 19 hipotesis tertutup, plus catatan cara angkanya didapat",
   "type": "commonjs",
-  "dependencies": {
+  "scripts": {
+    "serve": "python -m http.server 8811",
+    "verify": "node verify-render.mjs && node measure-layout.mjs"
+  },
+  "devDependencies": {
     "puppeteer-core": "^25.18.1"
   }
 }
