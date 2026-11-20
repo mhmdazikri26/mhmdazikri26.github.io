@@ -1049,7 +1049,7 @@ section > p {
 }
 .page-head__index a:hover { background: var(--color-paper-2); }
 .ph-index__num {
-  font-family: var(--font-mono);
+  font-family: var(--font-outlier);
   font-variant-numeric: tabular-nums;
   font-size: 0.8125rem;
   color: var(--color-muted);
