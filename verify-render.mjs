@@ -9,7 +9,7 @@ import fs from 'node:fs';
 const CHROME = 'C:/Program Files/Google/Chrome/Application/chrome.exe';
 const BASE = process.argv[2] || 'http://127.0.0.1:8811/';
 const WIDTHS = [320, 375, 414, 768, 860, 1024, 1280, 1440, 1920];
-const PAGES = ['index.html', 'catatan.html'];
+const PAGES = ['index.html', 'catatan.html', '404.html'];
 const SHOTS = process.env.SHOT_DIR || '.shots';
 
 fs.mkdirSync(SHOTS, { recursive: true });
