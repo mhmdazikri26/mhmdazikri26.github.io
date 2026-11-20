@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cara angka di register itu didapat: rantai enam langkah, carry funding BTC 2020-2026, empat koreksi atas kesalahan sendiri, dan alat di luar ledger.">
+  <title>Azikri: rantai pengukuran dan empat koreksi</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Literata:ital,wght@0,400;0,600;1,400&family=Public+Sans:wght@400;500;600&display=swap">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FAF9F5'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='22' font-weight='600' text-anchor='middle' fill='%23A33A2B'%3EA%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body id="top">
+  <header>
+    <div class="container">
+      <nav class="nav" aria-label="Utama">
+        <a class="nav__mark" href="index.html">Azikri</a>
+        <div class="nav__links">
+          <span class="nav__meta">Entri terakhir 17 Nov 2026</span>
+          <a href="index.html#ledger">Ledger</a>
+          <a href="catatan.html">Catatan</a>
+          <a href="catatan.html#koreksi">Koreksi</a>
+          <a href="index.html#kontak">Kontak</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+<section class="container page-head" aria-labelledby="catatan-title">
+  <div class="page-head__inner">
+    <h1 id="catatan-title">Cara angka itu didapat</h1>
+    <p class="page-lede">Jalannya bisa diperiksa, termasuk empat kali jalannya salah.</p>
+    <a class="btn btn--outline" href="#metode">Mulai dari langkah 1</a>
+  </div>
+  <nav class="page-head__index" aria-label="Isi halaman">
+    <ol>
+      <li><a href="#metode"><span class="ph-index__num">01</span> Rantai pengukuran</a></li>
+      <li><a href="#koreksi"><span class="ph-index__num">02</span> Empat koreksi</a></li>
+      <li><a href="#instrumen"><span class="ph-index__num">03</span> Di luar ledger</a></li>
+    </ol>
+  </nav>
+</section>
+
+<section id="metode" class="container" aria-labelledby="metode-title">
+  <h2 id="metode-title">Rantai pengukuran</h2>
+  <ol class="steps">
+    <li>
+      <h3>1. Pra-registrasi</h3>
+      <p>Ambang dan arah ditulis sebelum hasilnya dilihat.</p>
+    </li>
+    <li>
+      <h3>2. Null shuffle</h3>
+      <p>Distribusi acak dibangun ulang; hasil asli ditaruh di persentilnya.</p>
+    </li>
+    <li>
+      <h3>3. Drop-one</h3>
+      <p>Satu pair atau satu tahun dibuang bergiliran; kalau edge hilang, itu artefak.</p>
+    </li>
+    <li>
+      <h3>4. Interval bootstrap</h3>
+      <p>Kalau selang kepercayaan melewati nol, klaimnya belum ada.</p>
+    </li>
+    <li>
+      <h3>5. Model biaya</h3>
+      <p>Spread, komisi, slippage masuk sebagai angka, bukan catatan kaki.</p>
+    </li>
+    <li>
+      <h3>6. Mutation test</h3>
+      <p>Skrip verifikasi dimutasi; kalau tetap lolos, skripnya yang tidak menggigit.</p>
+    </li>
+  </ol>
+  <p class="source-line">docs/PREREG_*.md, scripts/verify_*.sh, scripts/mutate_*.sh</p>
+</section>
+
+<section id="koreksi" class="container" aria-labelledby="koreksi-title">
+  <h2 id="koreksi-title">Empat kali catatan ini salah, dan apa yang menangkapnya</h2>
+  <p>Ini yang membuat sisa halaman bisa dipercaya.</p>
+
+  <div class="corrections">
+<article class="correction">
+    <h3>SNR session week, lookahead</h3>
+    <dl class="pair">
+      <dt>tercatat</dt>
+      <dd class="num"><span class="pair__part">+0,466</span><span class="pair__part">t +6,12</span><span class="pair__part">9/9 kriteria lolos</span></dd>
+      <dt>setelah diperiksa</dt>
+      <dd class="num pair__checked"><span class="pair__part">−0,002</span><span class="pair__part">t −0,04</span></dd>
+    </dl>
+    <p>Sinyal masa depan bocor ke dalam hitungan.</p>
+  </article>
+
+  <article class="correction">
+    <h3>Funding rate crypto, replikasi palsu</h3>
+    <dl class="pair">
+      <dt>tercatat</dt>
+      <dd class="num">|t| 3,06</dd>
+      <dt>setelah diperiksa</dt>
+      <dd class="num pair__checked">|t| 1,77</dd>
+    </dl>
+    <p>Tiga settlement 8 jam berbagi satu harga penutup harian.</p>
+  </article>
+
+  <article class="correction">
+    <h3>Funding dispersion, P&amp;L memakai angka yang sama dengan pemilih</h3>
+    <dl class="pair">
+      <dt>tercatat</dt>
+      <dd class="num">z +62</dd>
+      <dt>setelah diperiksa</dt>
+      <dd class="num pair__checked">z +30,84</dd>
+    </dl>
+    <p>P&amp;L dihitung dari rate yang juga dipakai memilih aset.</p>
+  </article>
+
+  <article class="correction">
+    <h3>D1 trend EMA 15/40, sampel kecil</h3>
+    <dl class="pair">
+      <dt>tercatat</dt>
+      <dd class="num"><span class="pair__part">E[R] +0,221</span></dd>
+      <dt>setelah diperiksa</dt>
+      <dd class="num pair__checked">E[R] −0,1422 · t −3,93</dd>
+    </dl>
+    <p>n delapan kali lebih besar membalik tandanya.</p>
+  </article>
+</div>
+</section>
+
+<section id="instrumen" class="container" aria-labelledby="instrumen-title">
+  <h2 id="instrumen-title">Di luar ledger</h2>
+  <p>Alat yang dipakai sehari-hari, dengan angka yang sama telanjangnya.</p>
+  <div class="instruments">
+<article class="instrument">
+    <h3>Android, adb dan scrcpy</h3>
+    <p>Dikendalikan penuh dari desktop; wireless debugging mati setiap reboot, jadi satu ketukan manual per sesi.</p>
+  </article>
+  <article class="instrument">
+    <h3>cert-hunter</h3>
+    <p>Pencari program sertifikat gratis; sumber suburnya webinar dan kanal Telegram, bukan platform kursus.</p>
+  </article>
+  <article class="instrument">
+    <h3>Hermes, agen terminal</h3>
+    <p>Riset dan build dijalankan agen dengan gate tersembunyi; laporannya diperiksa ulang, bukan dipercaya.</p>
+  </article>
+  </div>
+</section>
+
+<footer class="colophon">
+  <div class="container">
+    <p>Halaman ini disusun dari catatan yang tersimpan di folder fxlab: 20 dokumen, 6 pra-registrasi, 71 skrip, 19 hipotesis tertutup. Tidak ada angka di halaman ini yang tidak ada di berkas sumbernya.</p>
+    <p class="colophon__foot">Cibiru, Bandung, 2026 <a href="index.html">Register</a> <a href="#top">Kembali ke atas</a></p>
+  </div>
+</footer>
+  </main>
+</body>
+</html>
